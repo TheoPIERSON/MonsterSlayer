@@ -24,18 +24,22 @@ MonsterDiv.appendChild(monstersLifeBar);
 
 let AttackButton = document.createElement("button");
 AttackButton.textContent = "Attaque";
+AttackButton.className = "actionBtn";
 ActionButtons.appendChild(AttackButton);
 
 let specialAttackButton = document.createElement("button");
 specialAttackButton.textContent = "Attaque Spéciale";
+specialAttackButton.className = "actionBtn";
 ActionButtons.appendChild(specialAttackButton);
 
 let btnHeal = document.createElement("button");
 btnHeal.textContent = "Soin";
+btnHeal.className = "actionBtn";
 ActionButtons.appendChild(btnHeal);
 
 let btnGiveUp = document.createElement("button");
 btnGiveUp.textContent = "Abandonner";
+btnGiveUp.className = "actionBtn";
 ActionButtons.appendChild(btnGiveUp);
 
 // Connect buttons to life bars
@@ -43,27 +47,32 @@ ActionButtons.appendChild(btnGiveUp);
 AttackButton.addEventListener("click", function () {
   if (monstersLife <= 0) {
     alert("Vous avez gagné");
+    resetValues();
   } else if (yourLife >= 0) {
-    console.log("samarsh");
     monstersLife = monstersLife - generateRandomIntegerInRange(3, 10);
     monstersLifeBar.textContent = monstersLife;
+    console.log("Vous attaquez");
     yourLife = yourLife - generateRandomIntegerInRange(5, 10);
     yourLifeBar.textContent = yourLife;
   } else {
     alert("Vous avez perdu...");
+    resetValues();
   }
 });
 
 specialAttackButton.addEventListener("click", function () {
   if (monstersLife <= 0) {
     alert("Vous avez gagné");
+    resetValues();
   } else if (yourLife >= 0) {
     monstersLife = monstersLife - generateRandomIntegerInRange(10, 20);
     monstersLifeBar.textContent = monstersLife;
+    console.log(monstersLife);
     yourLife = yourLife - generateRandomIntegerInRange(5, 10);
     yourLifeBar.textContent = yourLife;
   } else {
     alert("Vous avez perdu...");
+    resetValues();
   }
 });
 
@@ -74,15 +83,21 @@ btnHeal.addEventListener("click", function () {
     yourLife = yourLife + 10;
     yourLifeBar.textContent = yourLife;
   }
+  yourLife = yourLife - generateRandomIntegerInRange(5, 10);
+  yourLifeBar.textContent = yourLife;
 });
 
 btnGiveUp.addEventListener("click", function () {
+  resetValues();
+});
+// Generate a random number between min and max, including both min and max
+function generateRandomIntegerInRange(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function resetValues() {
   yourLife = 100;
   yourLifeBar.textContent = yourLife;
   monstersLife = 100;
   monstersLifeBar.textContent = monstersLife;
-});
-// Generate a random number between 2 and 10, including both 2 and 10
-function generateRandomIntegerInRange(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
