@@ -1,6 +1,6 @@
 header {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: space-evenly;
 }
 
@@ -8,4 +8,23 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#ActionButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  gap: 3rem;
+}
+.actionBtn {
+  padding: 10px;
+}
+.Atk {
+  border: 1px solid black;
+}
+img {
+  transform: scaleX(-1);
+  width: 100%;
+  display: flex;
 }
