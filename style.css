@@ -21,10 +21,33 @@ header {
   padding: 10px;
 }
 .Atk {
-  border: 1px solid black;
+  color: white;
+  border: 3px solid #d92124;
+  border-radius: 8px;
+  background-color: #eb522c;
+}
+.AtkSpe {
+  color: white;
+  border: 3px solid #d95c09;
+  border-radius: 8px;
+  background-color: #eb9b2c;
+}
+
+.Heal {
+  color: white;
+  border: 3px solid #348223;
+  border-radius: 8px;
+  background-color: #52b53c;
+}
+.GiveUp {
+  color: white;
+  border: 3px solid #454b4f;
+  border-radius: 8px;
+  background-color: #80878c;
 }
 img {
   transform: scaleX(-1);
   width: 100%;
+  height: 20rem;
   display: flex;
 }
