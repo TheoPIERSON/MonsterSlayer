@@ -55,3 +55,7 @@ img {
   height: 20rem;
   display: flex;
 }
+.monsterLifeBar {
+  background-color: #348223;
+  padding: 0.5rem;
+}

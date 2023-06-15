@@ -4,6 +4,7 @@
 const YourDiv = document.getElementById("you");
 const MonsterDiv = document.getElementById("monster");
 const ActionButtons = document.getElementById("ActionButtons");
+const DamageDiv = document.getElementById("Damages");
 
 let yourLife = 100;
 let monstersLife = 100;
@@ -17,7 +18,7 @@ YourDiv.appendChild(yourLifeBar);
 // Create monster's life level element
 let monstersLifeBar = document.createElement("h2");
 monstersLifeBar.textContent = monstersLife;
-monstersLifeBar.className = "player";
+monstersLifeBar.className = "player monsterLifeBar";
 MonsterDiv.appendChild(monstersLifeBar);
 
 // Create buttons
@@ -49,11 +50,26 @@ AttackButton.addEventListener("click", function () {
     alert("Vous avez gagné");
     resetValues();
   } else if (yourLife >= 0) {
-    monstersLife = monstersLife - generateRandomIntegerInRange(3, 10);
+    //
+    let monsterRandom = generateRandomIntegerInRange(3, 10);
+    monstersLife = monstersLife - monsterRandom;
     monstersLifeBar.textContent = monstersLife;
-    console.log("Vous attaquez");
-    yourLife = yourLife - generateRandomIntegerInRange(5, 10);
+    console.log(monsterRandom);
+
+    let damageHistory = document.createElement("p");
+    damageHistory.textContent = "Vous avez attaqué de " + monsterRandom;
+    damageHistory.className = "damages";
+    DamageDiv.appendChild(damageHistory);
+
+    let random = generateRandomIntegerInRange(5, 10);
+    yourLife = yourLife - random;
     yourLifeBar.textContent = yourLife;
+    console.log(random);
+    //create damage history
+    damageHistory = document.createElement("p");
+    damageHistory.textContent = "Le monstre vous enlève " + random + " PV";
+    damageHistory.className = "damages";
+    DamageDiv.appendChild(damageHistory);
   } else {
     alert("Vous avez perdu...");
     resetValues();
@@ -65,11 +81,25 @@ specialAttackButton.addEventListener("click", function () {
     alert("Vous avez gagné");
     resetValues();
   } else if (yourLife >= 0) {
-    monstersLife = monstersLife - generateRandomIntegerInRange(10, 20);
+    let random = generateRandomIntegerInRange(10, 20);
+    monstersLife = monstersLife - random;
     monstersLifeBar.textContent = monstersLife;
     console.log(monstersLife);
-    yourLife = yourLife - generateRandomIntegerInRange(5, 10);
+    //
+    let damageHistory = document.createElement("p");
+    damageHistory.textContent = "Vous avez attaqué de " + random;
+    damageHistory.className = "damages";
+    DamageDiv.appendChild(damageHistory);
+    //
+    let monsterRandom = generateRandomIntegerInRange(5, 10);
+    yourLife = yourLife - monsterRandom;
+    console.log(monsterRandom);
     yourLifeBar.textContent = yourLife;
+    //
+    damageHistory = document.createElement("p");
+    damageHistory.textContent = "Le monstre vous enlève " + monsterRandom + " PV";
+    damageHistory.className = "damages";
+    DamageDiv.appendChild(damageHistory);
   } else {
     alert("Vous avez perdu...");
     resetValues();
@@ -83,8 +113,14 @@ btnHeal.addEventListener("click", function () {
     yourLife = yourLife + 10;
     yourLifeBar.textContent = yourLife;
   }
-  yourLife = yourLife - generateRandomIntegerInRange(5, 10);
+  let monsterRandom = generateRandomIntegerInRange(5, 10);
+  yourLife = yourLife - monsterRandom;
   yourLifeBar.textContent = yourLife;
+  //
+  let damageHistory = document.createElement("p");
+  damageHistory.textContent = "Le monstre vous enlève " + monsterRandom + " PV";
+  damageHistory.className = "damages";
+  DamageDiv.appendChild(damageHistory);
 });
 
 btnGiveUp.addEventListener("click", function () {
@@ -94,7 +130,6 @@ btnGiveUp.addEventListener("click", function () {
 function generateRandomIntegerInRange(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
 function resetValues() {
   yourLife = 100;
   yourLifeBar.textContent = yourLife;
