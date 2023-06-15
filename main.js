@@ -23,22 +23,22 @@ MonsterDiv.appendChild(monstersLifeBar);
 // Create buttons
 
 let AttackButton = document.createElement("button");
-AttackButton.textContent = "Attaque";
+AttackButton.textContent = "Attaque 🔪";
 AttackButton.className = "actionBtn Atk";
 ActionButtons.appendChild(AttackButton);
 
 let specialAttackButton = document.createElement("button");
-specialAttackButton.textContent = "Attaque Spéciale";
+specialAttackButton.textContent = "Attaque Spéciale 🔫";
 specialAttackButton.className = "actionBtn AtkSpe";
 ActionButtons.appendChild(specialAttackButton);
 
 let btnHeal = document.createElement("button");
-btnHeal.textContent = "Soin";
+btnHeal.textContent = "Soin 🌱";
 btnHeal.className = "actionBtn Heal";
 ActionButtons.appendChild(btnHeal);
 
 let btnGiveUp = document.createElement("button");
-btnGiveUp.textContent = "Abandonner";
+btnGiveUp.textContent = "Abandonner 💩";
 btnGiveUp.className = "actionBtn GiveUp";
 ActionButtons.appendChild(btnGiveUp);
 

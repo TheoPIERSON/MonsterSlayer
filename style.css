@@ -22,12 +22,14 @@ header {
 }
 .Atk {
   color: white;
+  font-size: 1.5rem;
   border: 3px solid #d92124;
   border-radius: 8px;
   background-color: #eb522c;
 }
 .AtkSpe {
   color: white;
+  font-size: 1.5rem;
   border: 3px solid #d95c09;
   border-radius: 8px;
   background-color: #eb9b2c;
@@ -35,12 +37,14 @@ header {
 
 .Heal {
   color: white;
+  font-size: 1.5rem;
   border: 3px solid #348223;
   border-radius: 8px;
-  background-color: #52b53c;
+  background-color: #56a65e;
 }
 .GiveUp {
   color: white;
+  font-size: 1.5rem;
   border: 3px solid #454b4f;
   border-radius: 8px;
   background-color: #80878c;
