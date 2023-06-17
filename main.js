@@ -12,18 +12,18 @@ let monstersLife = 100;
 // Create Your life level element
 let yourLifeBar = document.createElement("h2");
 yourLifeBar.textContent = yourLife;
-yourLifeBar.className = "player";
+yourLifeBar.className = "player yourLifeBar";
 YourDiv.appendChild(yourLifeBar);
-
-// Get healthbar from html
-let health = document.getElementById("health");
-let healthMonster = document.getElementById("healthMonster");
 
 // Create monster's life level element
 let monstersLifeBar = document.createElement("h2");
 monstersLifeBar.textContent = monstersLife;
 monstersLifeBar.className = "player monsterLifeBar";
 MonsterDiv.appendChild(monstersLifeBar);
+
+// Get healthbar from html
+let health = document.getElementById("health");
+let healthMonster = document.getElementById("healthMonster");
 
 // Create buttons
 

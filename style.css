@@ -55,7 +55,24 @@ img {
   height: 20rem;
   display: flex;
 }
+
+.health {
+  border-radius: 0px;
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  margin-left: 1rem;
+  height: 1rem;
+  transform: skew(20deg);
+}
+
 .monsterLifeBar {
-  background-color: #348223;
-  padding: 0.5rem;
+  padding: 0px;
+  margin: 0%;
+}
+.yourLifeBar {
+  padding: 0px;
+  margin: 0%;
 }
