@@ -135,4 +135,5 @@ function resetValues() {
   yourLifeBar.textContent = yourLife;
   monstersLife = 100;
   monstersLifeBar.textContent = monstersLife;
+  DamageDiv.style.display = "none";
 }
