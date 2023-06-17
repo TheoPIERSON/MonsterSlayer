@@ -15,6 +15,10 @@ yourLifeBar.textContent = yourLife;
 yourLifeBar.className = "player";
 YourDiv.appendChild(yourLifeBar);
 
+// Get healthbar from html
+let health = document.getElementById("health");
+let healthMonster = document.getElementById("healthMonster");
+
 // Create monster's life level element
 let monstersLifeBar = document.createElement("h2");
 monstersLifeBar.textContent = monstersLife;
@@ -51,23 +55,26 @@ AttackButton.addEventListener("click", function () {
     resetValues();
   } else if (yourLife >= 0) {
     //
-    let monsterRandom = generateRandomIntegerInRange(3, 10);
-    monstersLife = monstersLife - monsterRandom;
+    let yourRandom = generateRandomIntegerInRange(3, 10);
+    monstersLife = monstersLife - yourRandom;
     monstersLifeBar.textContent = monstersLife;
-    console.log(monsterRandom);
+    console.log(yourRandom);
+    healthMonster.value -= yourRandom; //Or whatever you want to do with it.
 
     let damageHistory = document.createElement("p");
-    damageHistory.textContent = "Vous avez attaqué de " + monsterRandom;
+    damageHistory.textContent = "Vous avez attaqué de " + yourRandom;
     damageHistory.className = "damages";
     DamageDiv.appendChild(damageHistory);
 
-    let random = generateRandomIntegerInRange(5, 10);
-    yourLife = yourLife - random;
+    let monsterRandom = generateRandomIntegerInRange(5, 10);
+    yourLife = yourLife - monsterRandom;
     yourLifeBar.textContent = yourLife;
-    console.log(random);
+    console.log(monsterRandom);
+    health.value -= monsterRandom; //Or whatever you want to do with it.
+
     //create damage history
     damageHistory = document.createElement("p");
-    damageHistory.textContent = "Le monstre vous enlève " + random + " PV";
+    damageHistory.textContent = "Le monstre vous enlève " + monsterRandom + " PV";
     damageHistory.className = "damages";
     DamageDiv.appendChild(damageHistory);
   } else {
@@ -85,6 +92,8 @@ specialAttackButton.addEventListener("click", function () {
     monstersLife = monstersLife - random;
     monstersLifeBar.textContent = monstersLife;
     console.log(monstersLife);
+    healthMonster.value -= random; //Or whatever you want to do with it.
+
     //
     let damageHistory = document.createElement("p");
     damageHistory.textContent = "Vous avez attaqué de " + random;
@@ -95,6 +104,8 @@ specialAttackButton.addEventListener("click", function () {
     yourLife = yourLife - monsterRandom;
     console.log(monsterRandom);
     yourLifeBar.textContent = yourLife;
+    health.value -= monsterRandom; //Or whatever you want to do with it.
+
     //
     damageHistory = document.createElement("p");
     damageHistory.textContent = "Le monstre vous enlève " + monsterRandom + " PV";
@@ -112,10 +123,13 @@ btnHeal.addEventListener("click", function () {
   } else {
     yourLife = yourLife + 10;
     yourLifeBar.textContent = yourLife;
+    health.value += 10; //Or whatever you want to do with it.
+
+    let monsterRandom = generateRandomIntegerInRange(5, 10);
+    yourLife = yourLife - monsterRandom;
+    yourLifeBar.textContent = yourLife;
+    health.value -= monsterRandom; //Or whatever you want to do with it.
   }
-  let monsterRandom = generateRandomIntegerInRange(5, 10);
-  yourLife = yourLife - monsterRandom;
-  yourLifeBar.textContent = yourLife;
   //
   let damageHistory = document.createElement("p");
   damageHistory.textContent = "Le monstre vous enlève " + monsterRandom + " PV";
@@ -136,4 +150,6 @@ function resetValues() {
   monstersLife = 100;
   monstersLifeBar.textContent = monstersLife;
   DamageDiv.style.display = "none";
+  healthMonster.value = 100;
+  health.value = 100;
 }
